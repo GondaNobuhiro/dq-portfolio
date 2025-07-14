@@ -1,0 +1,13 @@
+.command p {
+	margin: 6px 0;
+	padding-left: 12px;
+	position: relative;
+	cursor: pointer;
+}
+
+.command p:hover::before {
+	content: "▶︎";
+	position: absolute;
+	left: 0;
+	color: white;
+}

@@ -1,0 +1,8 @@
+.status {
+	border-bottom: 1px solid white;
+	padding-bottom: 4px;
+}
+
+.status p {
+	margin: 6px 0;
+}

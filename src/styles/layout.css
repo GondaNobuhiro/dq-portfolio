@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+	margin: 0;
+	background-color: black;
+	color: white;
+	font-family: 'Press Start 2P', monospace;
+	font-size: 10px;
+}
+
+.dq-grid {
+	display: grid;
+	grid-template-columns: 200px 1fr 200px;
+	grid-template-rows: 1fr 120px 100px;
+	grid-template-areas:
+		"status game submenu"
+		"command game submenu"
+		"message message message";
+	gap: 4px;
+	height: 100vh;
+	padding: 4px;
+	box-sizing: border-box;
+}
+
+.grid-item {
+	border: 2px double white;
+	background-color: rgba(0, 0, 0, 0);
+	padding: 10px;
+	overflow: hidden;
+}
+
+.status-area {
+	grid-area: status;
+}
+
+.command-area {
+	grid-area: command;
+}
+
+.game-area {
+	grid-area: game;
+}
+
+.submenu-area {
+	grid-area: submenu;
+}
+
+.message-area {
+	grid-area: message;
+}

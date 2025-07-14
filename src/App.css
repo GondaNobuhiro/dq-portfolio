@@ -1,0 +1,76 @@
+body {
+	margin: 0;
+	font-family: 'MS Gothic', monospace;
+	background-color: black;
+	color: white;
+}
+
+.dq-grid {
+	display: grid;
+	grid-template-areas:
+		"status game submenu"
+		"command game submenu"
+		"message game submenu";
+	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-rows: auto auto 1fr;
+	height: 100vh;
+	border: 2px solid white;
+}
+
+.grid-item {
+	border: 1px solid white;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+.status {
+	grid-area: status;
+}
+
+.game {
+	grid-area: game;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.command {
+	grid-area: command;
+}
+
+.message {
+	grid-area: message;
+}
+
+.submenu {
+	grid-area: submenu;
+}
+
+.message-window {
+	background-color: black;
+	color: white;
+	border: 1px solid white;
+	padding: 8px;
+}
+
+.popup {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 300px;
+	background: rgba(0, 0, 0, 0.9);
+	border: 2px solid white;
+	padding: 12px;
+	color: white;
+	z-index: 10;
+}
+
+.popup h3 {
+	margin-top: 0;
+	font-size: 12px;
+}
+
+.popup img {
+	width: 100%;
+	margin-top: 8px;
+}
