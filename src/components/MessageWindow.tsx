@@ -1,5 +1,6 @@
 import React from 'react';
 import type { MessageWithChoices } from '../types';
+import '../App.css';
 
 interface MessageWindowProps {
 	message: string | React.JSX.Element | MessageWithChoices | null;

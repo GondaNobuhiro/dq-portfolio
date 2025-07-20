@@ -1,5 +1,5 @@
 import React from 'react';
-import './Status.css';
+import '../App.css';
 
 const Status: React.FC = () => {
 	return (

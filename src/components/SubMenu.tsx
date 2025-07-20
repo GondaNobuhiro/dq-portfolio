@@ -1,5 +1,5 @@
 import React from 'react';
-import './SubMenu.css';
+import '../App.css';
 
 const SubMenu: React.FC = () => {
 	return (

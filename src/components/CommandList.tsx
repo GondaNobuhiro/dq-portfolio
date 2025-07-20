@@ -1,5 +1,5 @@
 import React from 'react';
-import './CommandList.css';
+import '../App.css';
 
 interface CommandListProps {
 	setMessage: (msg: string) => void;

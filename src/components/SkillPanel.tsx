@@ -9,6 +9,7 @@ import {
 	Tooltip,
 	Legend
 } from 'chart.js';
+import '../App.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 

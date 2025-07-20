@@ -1,3 +1,9 @@
+:root {
+	--tile-size: 32px;
+	/* 1マスのサイズ */
+}
+
+/* 共通設定 */
 body {
 	margin: 0;
 	font-family: 'MS Gothic', monospace;
@@ -15,35 +21,46 @@ body {
 	grid-template-rows: auto auto 1fr;
 	height: 100vh;
 	border: 2px solid white;
+	gap: 4px;
 }
 
 .grid-item {
 	border: 1px solid white;
 	padding: 8px;
 	box-sizing: border-box;
+	overflow: auto;
 }
 
+/* ステータス欄 */
 .status {
 	grid-area: status;
+	font-size: 1rem;
 }
 
-.game {
-	grid-area: game;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
+/* コマンド欄 */
 .command {
 	grid-area: command;
+	font-size: 1rem;
 }
 
+.command p {
+	margin: 6px 0;
+	padding-left: 12px;
+	position: relative;
+	cursor: pointer;
+}
+
+.command p:hover::before {
+	content: "▶︎";
+	position: absolute;
+	left: 0;
+	color: white;
+}
+
+/* メッセージ欄 */
 .message {
 	grid-area: message;
-}
-
-.submenu {
-	grid-area: submenu;
+	font-size: 0.9rem;
 }
 
 .message-window {
@@ -53,6 +70,54 @@ body {
 	padding: 8px;
 }
 
+/* ゲーム画面 */
+.game {
+	grid-area: game;
+	background-color: #228B22;
+}
+
+/* マップチップ */
+.tile {
+	width: var(--tile-size) !important;
+	height: var(--tile-size) !important;
+	image-rendering: pixelated;
+	position: absolute;
+}
+
+/* キャラクター */
+.character {
+	width: var(--tile-size) !important;
+	height: var(--tile-size) !important;
+	display: block;
+	position: absolute;
+	image-rendering: pixelated;
+	z-index: 2;
+}
+
+/* NPC（任意で別クラス分離） */
+.npc {
+	width: var(--tile-size) !important;
+	height: var(--tile-size) !important;
+	display: block;
+	position: absolute;
+	image-rendering: pixelated;
+	z-index: 1;
+}
+
+/* その他ゲーム内の画像 */
+.game img:not(.tile):not(.character):not(.npc) {
+	max-width: 100%;
+	max-height: 100%;
+	image-rendering: pixelated;
+}
+
+/* サブメニュー（現状非表示） */
+.submenu {
+	grid-area: submenu;
+	display: none;
+}
+
+/* ポップアップ */
 .popup {
 	position: absolute;
 	top: 20px;
@@ -73,4 +138,45 @@ body {
 .popup img {
 	width: 100%;
 	margin-top: 8px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+	.dq-grid {
+		grid-template-areas:
+			"status"
+			"game"
+			"command"
+			"message";
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto auto;
+		height: auto;
+	}
+
+	.status,
+	.command,
+	.message {
+		font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+		padding: 6px;
+	}
+
+	.command p {
+		font-size: clamp(0.75rem, 2.5vw, 1rem);
+	}
+
+	.game-container {
+		position: relative;
+		width: calc(32px * 30);
+		/* MAP_WIDTH * TILE_SIZE */
+		height: calc(32px * 20);
+		/* MAP_HEIGHT * TILE_SIZE */
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	.popup {
+		width: 90vw;
+		left: 5vw;
+		top: 5vh;
+	}
 }
